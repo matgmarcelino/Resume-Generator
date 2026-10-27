@@ -53,3 +53,12 @@
     font-size: 0.95rem;
     white-space: pre-line;
 }
+
+/* Narrow page: dates drop below the title instead of squeezing it */
+@container (max-width: 480px) {
+    .entry-dates {
+        grid-column: 1;
+        grid-row: auto;
+        margin-top: 2px;
+    }
+}

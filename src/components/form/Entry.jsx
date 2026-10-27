@@ -1,6 +1,6 @@
 import '../../styles/Entry.css';
 
-export default function Entry({ label, name, type = "text", required }) {
+export default function Entry({ label, name, type = "text", required, autoComplete }) {
     if (!label) {
         throw new Error('No Label given');
     }
@@ -10,7 +10,7 @@ export default function Entry({ label, name, type = "text", required }) {
             {required ? label + '*' : label}
             {   type === 'month' ? <DateInput name={name} /> : 
                 type === 'textarea' ? <TextAreaInput name={name} /> :
-                <input type={type} name={name} />}
+                <input type={type} name={name} autoComplete={autoComplete} />}
         </label>
     );
 }
@@ -33,7 +33,7 @@ function DateInput({ name }) {
                 <option value="11">Nov</option>
                 <option value="12">Dec</option>
             </select>
-            <input type="number" name={name + 'Year'} placeholder="Year" min="1950" max="2030" />
+            <input type="number" name={name + 'Year'} placeholder="Year" min="1950" max="2030" inputMode="numeric" />
         </div>
     );
 }

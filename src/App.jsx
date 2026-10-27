@@ -22,6 +22,15 @@ export default function App() {
         titleOfStudy: "",
     });
 
+    // Mobile only: which panel is showing, and whether the preview changed while hidden
+    const [view, setView] = useState('edit');
+    const [hasUnseenChanges, setHasUnseenChanges] = useState(false);
+
+    function showView(nextView) {
+        setView(nextView);
+        if (nextView === 'preview') setHasUnseenChanges(false);
+    }
+
     function handleChange(e) {
         e.preventDefault();
 
@@ -35,16 +44,26 @@ export default function App() {
         }
 
         setData(newData);
+        if (view === 'edit') setHasUnseenChanges(true);
     }
 
     return (
-        <div className='container'>
+        <div className='container' data-view={view}>
             <aside className='editor'>
                 <Form onChange={handleChange} />
             </aside>
             <main className='preview'>
                 <Display data={data} />
             </main>
+            <nav className='view-switch' aria-label='Switch view'>
+                <button type='button' aria-pressed={view === 'edit'} onClick={() => showView('edit')}>
+                    Edit
+                </button>
+                <button type='button' aria-pressed={view === 'preview'} onClick={() => showView('preview')}>
+                    Preview
+                    {hasUnseenChanges && <span className='update-dot' aria-label='(updated)' />}
+                </button>
+            </nav>
         </div>
     );
 }

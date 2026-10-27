@@ -25,7 +25,8 @@ fieldset > button {
     margin-top: 4px;
 }
 
-@media (max-width: 420px) {
+/* Narrow editor: stack the date fields so month + year aren't cramped */
+@container (max-width: 440px) {
     fieldset {
         grid-template-columns: 1fr;
     }

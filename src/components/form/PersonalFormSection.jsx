@@ -7,10 +7,10 @@ export default function PersonalFormSection({ onReset }) {
         <fieldset>
             <legend>Personal Information</legend>
 
-            <Entry label="First Name" name="firstName" />
-            <Entry label="Last Name" name="lastName" />
-            <Entry label="Email" type="email" name="email" />
-            <Entry label="Phone Number" type="tel" name="phoneNumber" />
+            <Entry label="First Name" name="firstName" autoComplete="given-name" />
+            <Entry label="Last Name" name="lastName" autoComplete="family-name" />
+            <Entry label="Email" type="email" name="email" autoComplete="email" />
+            <Entry label="Phone Number" type="tel" name="phoneNumber" autoComplete="tel" />
 
             <ResetButton onReset={onReset} />
         </fieldset>

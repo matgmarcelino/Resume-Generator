@@ -4,6 +4,12 @@
     border-color: var(--border);
 }
 
+@media (max-width: 860px) {
+    .reset-button {
+        min-height: 44px;
+    }
+}
+
 .reset-button:hover {
     color: var(--text);
     border-color: #b9c1cc;

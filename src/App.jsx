@@ -22,8 +22,6 @@ export default function App() {
         titleOfStudy: "",
     });
 
-    console.log(data);
-
     function handleChange(e) {
         e.preventDefault();
 

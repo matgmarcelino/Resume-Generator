@@ -1,0 +1,79 @@
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--muted);
+}
+
+/* Date fields sit side by side; everything else takes the full row */
+label:not(:has(.date-input)) {
+    grid-column: 1 / -1;
+}
+
+/* Month select + year input share one row */
+.date-input {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 9px 11px;
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: #b9c1cc;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* Replace the native arrow so selects match the text inputs */
+select {
+    appearance: none;
+    padding-right: 30px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%235f6b7a' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 11px center;
+}
+
+/* Show the "Month" placeholder in the muted color until a month is picked */
+select:has(option[value=""]:checked) {
+    color: var(--muted);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Hide the number spinners; they crowd the narrow year field */
+input[type="number"] {
+    appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

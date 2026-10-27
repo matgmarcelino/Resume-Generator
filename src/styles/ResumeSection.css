@@ -1,0 +1,55 @@
+.section-title {
+    margin: 0 0 14px;
+    padding-bottom: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    border-bottom: 1.5px solid var(--accent);
+}
+
+/* Entries: title and subtitle on the left, dates pinned top-right */
+.entry + .entry {
+    margin-top: 18px;
+}
+
+.entry-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 16px;
+}
+
+.entry-title,
+.entry-subtitle,
+.entry-responsibilities {
+    grid-column: 1;
+    margin: 0;
+}
+
+.entry-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.entry-subtitle {
+    font-style: italic;
+    color: var(--muted);
+}
+
+.entry-dates {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--muted);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.entry-responsibilities {
+    grid-column: 1 / -1;
+    margin-top: 8px;
+    font-size: 0.95rem;
+    white-space: pre-line;
+}

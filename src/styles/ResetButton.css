@@ -1,0 +1,10 @@
+.reset-button {
+    color: var(--muted);
+    background: transparent;
+    border-color: var(--border);
+}
+
+.reset-button:hover {
+    color: var(--text);
+    border-color: #b9c1cc;
+}

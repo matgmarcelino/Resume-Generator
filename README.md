@@ -1,16 +1,56 @@
-# React + Vite
+# Resume Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React app for building a CV. Fill in the form on the left and a live preview of the resume updates on the right as you type.
 
-Currently, two official plugins are available:
+**Live demo:** https://matgmarcelino.github.io/Resume-Generator/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Personal details:** name, email, and phone number
+- **Education:** school, title of study, degree, and start/end dates
+- **Experience:** company, position, responsibilities, and start/end dates
+- **Live preview:** the resume re-renders on every change
+- **Per-section reset:** clear a single section without touching the others
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Fields marked with `*` are required for that section to appear in the preview.
 
-## Expanding the ESLint configuration
+## Tech stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [React](https://react.dev/)
+- [Vite](https://vite.dev/)
+- [ESLint](https://eslint.org/)
+
+## Getting started
+
+Requires [Node.js](https://nodejs.org/) and npm.
+
+```bash
+git clone git@github.com:matgmarcelino/Resume-Generator.git
+cd Resume-Generator
+npm install
+npm run dev
+```
+
+Then open the URL Vite prints (usually http://localhost:5173).
+
+## Scripts
+
+| Command           | Description                          |
+| ----------------- | ------------------------------------ |
+| `npm run dev`     | Start the dev server with hot reload |
+| `npm run build`   | Build for production into `dist/`    |
+| `npm run preview` | Serve the production build locally   |
+| `npm run lint`    | Run ESLint                           |
+
+## Project structure
+
+```
+src/
+├── App.jsx               # Holds form state, lays out editor + preview
+├── main.jsx              # Entry point
+├── components/
+│   ├── form/             # Form sections, inputs, reset button
+│   ├── preview/          # Resume preview sections
+│   └── helpers/          # Date formatting
+└── styles/               # Component stylesheets
+```

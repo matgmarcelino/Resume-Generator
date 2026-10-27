@@ -1,0 +1,32 @@
+fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 12px;
+    margin: 0;
+    padding: 20px 18px 18px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+legend {
+    padding: 0 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+}
+
+/* Each fieldset is a two-column grid, so give the Reset button its own
+   row and pin it right instead of letting it fill a single cell */
+fieldset > button {
+    grid-column: 1 / -1;
+    justify-self: end;
+    margin-top: 4px;
+}
+
+@media (max-width: 420px) {
+    fieldset {
+        grid-template-columns: 1fr;
+    }
+}
